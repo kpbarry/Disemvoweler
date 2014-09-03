@@ -24,6 +24,7 @@ namespace Disemvoweler
             string vowels = "aeiou";
             //String for consonant checking
             string consonants = "bcdfghjklmnpqrstvxyz";
+            string punctuation = ".!,;?'";
             //Empty strings to build on
             string onlyVowels = string.Empty;
             string consonantCounter = string.Empty;
@@ -35,16 +36,20 @@ namespace Disemvoweler
                 if (vowels.Contains(c))
                 {
                     onlyVowels = onlyVowels + c;
+                    
                 }
                 //Add consonant to new string if found
-                else if(consonants.Contains(c))
+                else if (consonants.Contains(c))
+                {
+                    consonantCounter = consonantCounter + c;
+                }
+                else if (punctuation.Contains(c))
                 {
                     consonantCounter = consonantCounter + c;
                 }
             }
-
             //Return string, new string w/o vowels & the vowels
-            Console.WriteLine("\nOriginal: " + input + "\nDisemvoweled: " + consonantCounter.ToUpper() + "\nJust the vowels: " + onlyVowels.ToUpper());
+            Console.WriteLine("\nOriginal: " + input + "\nDisemvoweled: " + consonantCounter.ToUpper()+ "\nJust the vowels: " + onlyVowels.ToUpper());
         }
     }
 }
